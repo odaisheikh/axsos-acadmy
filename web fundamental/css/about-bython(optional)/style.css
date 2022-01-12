@@ -112,4 +112,24 @@ nav a{
     color: white;
     margin-top: 20px;  
 }
+.sec2{
+    display: flex;
+    
+}
+.sec2 ul{
+    list-style-type: square;
+    
+}
+.sec2 ul span{
+    list-style-type: square;
+    color:#245076 ;
+}
+.sec2 .right,.left{
+    width: 400px;
+    margin-left: 80px;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 3px solid #245076;
+}
 
