@@ -114,6 +114,7 @@ nav a{
 }
 .sec2{
     display: flex;
+    justify-content: space-around;
     
 }
 .sec2 ul{
@@ -131,5 +132,30 @@ nav a{
     margin-top: 10px;
     padding-top: 5px;
     border-top: 3px solid #245076;
+}
+footer div{
+    width: inherit;
+
+    
+}
+footer div ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+footer div ul li{
+    margin-left:30px;
+    padding-top: 90px;
+    color: whitesmoke;
+
+    
+}
+footer p {
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+    padding-top: 10px;
 }
 
