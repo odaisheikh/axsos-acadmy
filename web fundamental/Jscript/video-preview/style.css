@@ -115,8 +115,9 @@ body {
 }
 
 .vid-s {
-    width: 170px;
+    width: 200px;
     margin-right: 10px;
+    height: 100px;
 }
 
 .video-title {
