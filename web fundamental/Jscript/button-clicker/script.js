@@ -4,3 +4,4 @@ function logOut(element){
 function remove(element){
     element.remove();
 }
+console.log("c");
