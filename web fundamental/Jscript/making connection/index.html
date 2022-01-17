@@ -21,7 +21,7 @@
         <div class="container">
             <img class="first1" src="icons/user-circle.png" alt="user logo">
             <div class="head"></div>
-            <h1>Jane Doe</h1>
+            <h1 class="my-name">Jane Doe</h1>
             <div class="body">
                 <img class="first2" src="icons/map-marker.png">
                 <span>Seattle</span>
@@ -30,7 +30,7 @@
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, iure.</p>
             <div class="body1">
                 <img  class="first2" src="icons/gear.png">
-                <span><a  href="#">edit profile</a> </span>
+                <span><a onclick="remove1(this)" href="#">edit profile</a> </span>
             </div>
         </div>
         <div class="education">
@@ -46,13 +46,13 @@
         </div>
         <div class="connection">
             <div>
-                <img src="icons/user-circle.png"><span>connection Reqwest</span>
+                <span class="conn">2</span><span>connection Reqwest</span>
             </div>
-            <div>
-                <img src="icons/user-circle.png"><span class="relt0">Tood E</span> <img class="relt"  src="icons/accept-circle.png"><img  src="icons/close-circle.png">
+            <div class="first-img">
+                <img src="icons/user-circle.png"><span class="relt0">Tood E</span> <img id="accept" onclick="increase(),remove2()"  class="relt"  src="icons/accept-circle.png"><img class="decline"  onclick="myFunction(),remove2()" src="icons/close-circle.png">
             </div>
-            <div>
-                <img src="icons/user-circle.png"><span class="relt0">Pill k</span> <img class="relt" src="icons/accept-circle.png"><img src="icons/close-circle.png">
+            <div class="secound-img">
+                <img src="icons/user-circle.png"><span class="relt0">Pill k</span> <img id="accept" onclick="increase() ,remove3() " class="relt" src="icons/accept-circle.png"><img class="decline" onclick="myFunction(),remove3()" src="icons/close-circle.png">
             </div>
         </div>
     </div>
@@ -64,5 +64,6 @@
         <div><img src="icons/close-circle.png" > <span>Array Y</span></div>
         <div style="display: flex; justify-content: center; border-top: 2px solid aqua;"><a href="#" style="color: aqua; text-decoration: underline; ">view port</a></div>
     </div>
+    <script src="script.js"></script>
     
 </body>
