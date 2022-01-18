@@ -13,14 +13,15 @@ function temp(elem){
         document.querySelector(".blue4").innerHTML="24";
     }
     else{
-        document.querySelector(".blue1").innerHTML=Math.floor((18*5/9)+32);
-        document.querySelector(".red1").innerHTML=Math.floor((27*5/9)+32);
-        document.querySelector(".red2").innerHTML=Math.floor((27*5/9)+32);
-        document.querySelector(".red3").innerHTML=Math.floor((21*5/9)+32);
-        document.querySelector(".blue4").innerHTMLMath.floor((26*5/9)+32);
-        document.querySelector(".blue2").innerHTMLMath.floor((19*5/9)+32);
-        document.querySelector(".blue3").innerHTMLMath.floor((16*5/9)+32);
-        document.querySelector(".blue4").innerHTMLMath.floor((24*5/9)+32);
+        console.log((18*(5/9))+32);
+        document.querySelector(".blue1").innerHTML=Math.floor((18*(9/5))+32);
+        document.querySelector(".red1").innerHTML= Math.floor((27*(9/5))+32);
+        document.querySelector(".red2").innerHTML= Math.floor((27*(9/5))+32);
+        document.querySelector(".red3").innerHTML= Math.floor((21*(9/5))+32);
+        document.querySelector(".blue4").innerHTML=Math.floor((26*(9/5))+32);
+        document.querySelector(".blue2").innerHTML=Math.floor((19*(9/5))+32);
+        document.querySelector(".blue3").innerHTML=Math.floor((16*(9/5))+32);
+        document.querySelector(".blue4").innerHTML=Math.floor((24*(9/5))+32);
     }
 
 }
