@@ -56,3 +56,22 @@ dojo = {
     'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
 }
 iterateDictionary3 (dojo)
+#/////////////////////// just more pracice
+x = [ [5,2,3], [10,8,9] ] 
+for i in x :
+    for key in i:
+        print(key)
+#///////////////////
+students = [
+    {'first_name':  'Michael', 'last_name' : 'Jordan'},
+    {'first_name' : 'John', 'last_name' : 'Rosales'}
+]
+for x in students :
+    for key,values in x.items():
+        print (values)
+print(students[0])
+#////////////////////
+z = [ {'x': 10, 'y': 20} ]
+for x in z :
+    for key in x.keys():
+        print(key)
