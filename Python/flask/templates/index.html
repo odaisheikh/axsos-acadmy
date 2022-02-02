@@ -5,8 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .flex div{
+            display: inline-block;
+            background-color: aqua;
+        }
+
+        
+        
+    </style>
 </head>
-<body>
-    <h1>hello world</h1>
+<body><div class="flex">
+    {%for i in range(0,some_times)%}
+    <div class="color" style="width: 24%; height: 300px;background-color: {{ color }}; "></div>
+    {%endfor%}
+</div>
 </body>
 </html>
