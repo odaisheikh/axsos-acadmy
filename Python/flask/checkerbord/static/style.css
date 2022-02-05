@@ -1,0 +1,17 @@
+table{
+    border:1px solid black;
+    border-collapse: collapse;
+}
+/* tr ,td {
+    border: 1px solid black;
+} */
+.color1{
+    background-color: black;
+    width: 40px;
+    height: 40px;
+}
+.color2{
+    background-color: red;
+    width: 40px;
+    height: 40px;
+}
