@@ -14,4 +14,4 @@ def create_user():
     return render_template("index_show.html", name_on_template=name_from_form, location_on_template=location_from_form ,
     language_from_form = language_from_form , coment_from_form = coment_from_form  )
 if __name__ == "__main__":
-    app.run(debug=True , port=5002)
+    app.run(debug=True)
