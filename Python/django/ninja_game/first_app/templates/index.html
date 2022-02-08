@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row div {
+            display: inline-block;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <p>youre which_form <input type="text" disabled value="">{{request.session.score}}</p>
+    <div class="row">
+        <div>
+            <form action="/prosess_mony" method="post">{% csrf_token %}
+                <input type="hidden" name="which_form" value="farm">
+                <h2>farm</h2>
+                <p>earn from 10,20</p>
+                <input type="submit">
+            </form>
+        </div>
+        <div>
+            <form action="/prosess_mony" method="post">{% csrf_token %}
+                <input type="hidden" name="which_form" value="cave">
+                <h2>cave</h2>
+                <p>earn from 5,10</p>
+                <input type="submit">
+            </form>
+        </div>
+        <div>
+            <form action="/prosess_mony" method="post">{% csrf_token %}
+                <input type="hidden" name="which_form" value="house">
+                <h2>house</h2>
+                <p>earn from 2,5</p>
+                <input type="submit">
+            </form>
+        </div>
+        <div>
+            <form action="/prosess_mony" method="post">{% csrf_token %}
+                <input type="hidden" name="which_form" value="casino">
+                <h2>casino</h2>
+                <p>earn from -50,50</p>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+    <h2>log</h2>
+    <div style="background-color: aquamarine; height: 200px;">
+        <li>{{request.session.messege}}</li>
+    </div>
+</body>
+
+</html>
