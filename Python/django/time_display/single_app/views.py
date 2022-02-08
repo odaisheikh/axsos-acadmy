@@ -1,7 +1,8 @@
 from multiprocessing import context
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from time import gmtime, strftime
 from datetime import datetime
+
     
 def index(request):
     context = {
@@ -16,9 +17,11 @@ def handel(request):
     name = request.POST['name']
     location = request.POST['location']
     langueg = request.POST['langueg']
-    context = {
-        "x":name,
-        "x1":location,
-        "x2":langueg
-    }
-    return render(request,"view.html" , context)
+    request.session['name']=name
+    request.session['location']=location
+    request.session['langueg']=langueg
+    
+    return redirect('/show')
+def show(request):
+
+    return render(request,"view.html" )
