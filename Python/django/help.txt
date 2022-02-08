@@ -1,0 +1,20 @@
+django-admin startproject your_project_name_here
+cd your_project_name
+python manage.py startapp your_app_name_here
+////////////////////////////////////////////
+in seting set the name of yore_app_name
+///////////////////////
+from django.urls import path, include           # import include
+urlpatterns = [
+    path('', include('your_app_name_here.urls')),	   
+    # path('admin/', admin.sites.urls)         
+]
+///////////////////////////////
+from django.urls import path     
+from . import views
+urlpatterns = [
+    path('', views.index),	   
+]
+///////////////////////////
+python manage.py migrate #when add session
+//////////////////////////
