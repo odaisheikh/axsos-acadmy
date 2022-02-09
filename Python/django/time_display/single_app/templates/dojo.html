@@ -15,7 +15,7 @@
 </head>
 <div class="container">
     <body>
-        <form action="/handel" method="post">
+        <form action="{% url 'prosess' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <label for="youre name">youre name</label>

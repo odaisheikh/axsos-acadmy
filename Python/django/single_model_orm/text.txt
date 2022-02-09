@@ -1,0 +1,19 @@
+users.objects.create(first_name = "jehad", lastname_name = "imaad",email_address = "nnmm0@gmail.com",age = 45)
+users.objects.create(first_name = "jehad", lastname_name = "imaad",email_address = "nnmm0@gmail.com",age = 45)
+users.objects.create(first_name = "jehad", lastname_name = "imaad",email_address = "nnmm0@gmail.com",age = 45)
+/////////////////////////////////////////
+users.objects.all()
+////////////////
+>>> users.objects.get(id=1)
+>>> users.objects.get(id=3)
+//////////////
+>>> x = users.objects.last()
+>>> x.lastname_last = "panckakes"
+x.save()
+///////////////////
+ y = users.objects.get(id=2)
+>>> y.delete()
+///////////////////////
+users.objects.all().order_by("first_name")
+users.objects.all().order_by("-first_name")
+//////////////////////
