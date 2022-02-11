@@ -18,3 +18,8 @@ urlpatterns = [
 ///////////////////////////
 python manage.py migrate #when add session
 //////////////////////////
+python manage.py makemigrations #when change any thing in the  model.py
+python manage.py migrate
+//////////////
+python manage.py shell #open shell
+
