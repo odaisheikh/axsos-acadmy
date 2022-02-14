@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        form{
+            margin: 20px auto;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        form div{
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <form action="/print/{{show_id.id}}/edit" method="post">
+        <h1>edit Tv Show {{show_id.id}}</h1>            <a href="/show">go back</a>
+        {% csrf_token %}
+        <p>title <input type="text" name="title"> </p>
+        <div >
+            <p>network <input type="text" name="network"> </p>
+            <p>release data <input type="date" name="releas"> </p>
+        </div>
+        <p> description </p>
+        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+        <button style="width: 60px;" type="submit">update</button>
+    </form>
+    <a href="/read/{{show_id.id}}">go to show</a>
+</body>
+</html>
