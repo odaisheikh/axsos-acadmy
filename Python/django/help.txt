@@ -22,4 +22,7 @@ python manage.py makemigrations #when change any thing in the  model.py
 python manage.py migrate
 //////////////
 python manage.py shell #open shell
+/////////////
+Mahmoud.abusalameh@axsos.me
+call C:\Users\user\OneDrive\Desktop\bootcamp\my_venv\django_env\Scripts\activate
 

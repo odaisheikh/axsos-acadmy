@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .main header {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .post {
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+            margin: 2px 100px 0px 100px;
+        }
+
+        .post button {
+            width: 60px;
+            background-color: rgb(255, 225, 196);
+            box-shadow: 3px 3px 3px black;
+            margin: 2px;
+        }
+
+        .post div {
+            text-align: end;
+        }
+
+        /* .messages div button{
+            text-align: end;
+        } */
+        .messages {
+            padding: 20px;
+            background-color: antiquewhite;
+            font-family: sans-serif;
+        }
+
+        .messages button {
+            width: 60px;
+            background-color: rgb(208, 255, 196);
+            box-shadow: 3px 3px 3px black;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <header>
+            <h2>coding-dojo wall</h2>
+            <h2>hello: {{user.first_name}}</h2>
+            <h2><a href="/logout_wall">logout</a></h2>
+        </header>
+        <main>
+            <form class="post" action="/post/{{user.id}}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="which_form" value="post"> 
+                <p>post a messages</p>
+                <textarea name="post" id="" cols="30" rows="10"></textarea>
+                <div><button type="submit">post</button></div>
+            </form>
+            <ul>
+                {% for message_user in mess%}
+                <li>
+                    <div class="messages">
+                        <p style="font-weight: bold;" >
+                            {{message_user.user_id.first_name}}-{{message_user.user_id.last_name}}
+                            {{message_user.created_at}}</p>
+                        <ul>
+                            <li>
+                                <div>
+                                    {{message_user.message}}
+                                </div>
+                            </li>
+                        </ul>
+                        <form style="width: 600px;"  class="post" action="/post/{{message_user.id}}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="which_form" value="post_coment">
+                            <p>post a coment</p>
+                            <textarea style="width: 600px;" name="coment" id="" cols="30" rows="4"></textarea>
+                            <div style="text-align: end;"><button type="submit">post</button></div>
+                        </form>
+
+                    </div>
+                </li>
+                {%endfor%}
+            </ul>
+        </main>
+    </div>
+</body>
+
+</html>

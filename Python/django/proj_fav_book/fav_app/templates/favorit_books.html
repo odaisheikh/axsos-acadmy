@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header{
+        display:flex;
+        justify-content: space-between;
+        }
+        .main{
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <header><h3>hello {{user.first_name}} {{user.last_name}}</h3> 
+    <h3><a href="/logout">logout</a></h3>
+    </header>
+    <hr>
+    <div class="main">
+    <div class="flex">
+    <h3>added by {{book.uploded_by.first_name}} {{book.uploded_by.last_name}}</h3>
+    <h3>added at : {{book.created_at}}</h3>
+    <h3>last_updated : {{book.updated_at}}</h3>
+    {% if user.id == book.uploded_by.id%}
+    <form method="post" action="/handel_favorit">
+        <div>
+            description : 
+            <div><textarea name="" id="" cols="13" rows="8"></textarea>
+                <p><button type="submite">update</button><button type="submite">delete</button></p>
+            </div>
+        </div>
+    </form>
+    {%endif%}
+    </div>
+    <div class="flex">
+        <h3>users who likes this books</h3>
+        {% for users in users_likes%}
+        <li>{{users.first_name}} {{users.last_name}}  {% if users.id == user.id%} <a href="#">un_favarit</a>{% endif %}</li>
+        {%endfor%}
+    </div>
+    </div>
+</body>
+</html>
