@@ -1,4 +1,6 @@
 from datetime import datetime
+from datetime import timedelta
+
 from django.db import models
 
 class BlogManager(models.Manager):
@@ -11,10 +13,15 @@ class BlogManager(models.Manager):
             errors["network"] = "Blog network should be at least 3 characters"
         if len(postData['desc']) < 10:
             errors["desc"] = "Blog description should be at least 10 characters"
-        # if (datetime.date(postData['releas']) < datetime.date(datetime.now())):
-        #     errors["releas"] =" title should be at least 10 characters time shoud be no in the future"
-
-
+        theNewTimeType = datetime.strptime(postData['releas'], '%Y-%m-%d')
+        currentTime = datetime.time(datetime.now())
+        theTimeToBeCompared = datetime.time(theNewTimeType)
+        after_30_min = theNewTimeType + timedelta(minutes = 30)
+        after_30_min > datetime.now()
+        print( after_30_min, theTimeToBeCompared)
+        print(theNewTimeType, "=========",  datetime.date(datetime.now()))
+        if (theTimeToBeCompared < datetime.time(datetime.now())):
+            errors["releas"] =" title should be at least 10 characters time shoud be no in the future"
         return errors
 
 class Show(models.Model):

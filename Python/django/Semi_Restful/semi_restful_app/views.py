@@ -36,6 +36,7 @@ def add(request):
 
 def update(request,edit_id):
     # show_to_update = show.objects.get(id=edit_id)
+    
     context = {
         'show_id':Show.objects.get(id=edit_id),
     }

@@ -73,14 +73,16 @@
             <div class="all_books">
                 <h2>all books</h2>
                 
-                    {% for books in this_book%}
+
+                
+                    {% for i in this_book%}
                     <ul>
-                        <li> added by {{books.uploded_by.first_name}} {{books.uploded_by.last_name}}</li>
-                        <li> <a href="/favorit/{{books.id}}">{{books.title}} {{books.users_who_likes.id}}</a></li>
-                        {% if user.id == books.uploded_by.id or books.uploded_by.id == books.users_who_likes.id %}
+                        <li> added by {{i.uploded_by.first_name}} {{i.uploded_by.last_name}}</li>
+                        <li> <a href="/favorit/{{i.id}}">{{i.title}} {{i.users_who_likes.id}}</a></li>
+                        {% if i in favorite %}
                         <li>favret by you</li>
                         {%else%}
-                        <li><a href="/add_favorit/{{books.id}}">add to youre favorite</a></li>
+                        <li><a href="/add_favorit/{{i.id}}">add to youre favorite</a></li>
                         {%endif%}
                     </ul>
                     {%endfor%}

@@ -27,11 +27,12 @@
     <h3>added at : {{book.created_at}}</h3>
     <h3>last_updated : {{book.updated_at}}</h3>
     {% if user.id == book.uploded_by.id%}
-    <form method="post" action="/handel_favorit">
+    <form method="post" action="/update/{{book.id}}">
+        {% csrf_token %}
         <div>
             description : 
-            <div><textarea name="" id="" cols="13" rows="8"></textarea>
-                <p><button type="submite">update</button><button type="submite">delete</button></p>
+            <div><textarea name="update_desc" id="" cols="13" rows="8"></textarea>
+                <p><button type="submite">update</button><button><a href="/delete/{{book.id}}">delete</a></button></p>
             </div>
         </div>
     </form>
