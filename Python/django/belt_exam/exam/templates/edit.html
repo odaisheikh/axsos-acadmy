@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form{
+            width: 800px;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        form button{
+            width: 90px;
+            height: 30px;
+            box-shadow: -3px -3px 1px black;
+            background-color: aqua;
+            margin: 5px;
+        }
+        form div{
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            margin: 5px 0px;
+        }
+        a{
+            text-decoration: none;
+            width: inherit;
+            height: inherit;
+        }
+        li{
+            color: rgb(255, 196, 0);
+        }
+        header{
+            padding: 2px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <header class="header"><h3>hello {{user_loged.first_name}}! make a update</h3><h3><a href="/logout">logout</a></h3></header>
+    <div>
+        {% if request.session.flag == 'edit'%}
+                {% if messages %}
+                    <ul class="messages">    
+                        {% for message in messages %}    
+                            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+    </div>
+    <div class="form">
+        <form action="/handel_edit/{{c.id}}" method="post">
+            {% csrf_token %}
+            <div>
+                <p>i wish for</p>
+                <input type="text" name="item" placeholder="go">
+            </div>
+            <div>
+                <p>descrption</p>
+                <input type="text" name="desc">
+            </div>
+            <p><button><a href="/main/{{user_loged.id}}">cancel</a></button><button type="submit">edit</button></p>
+        </form>
+    </div>
+</body>
+</html>

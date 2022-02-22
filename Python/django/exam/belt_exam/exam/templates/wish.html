@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+        }
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 800px;
+        }
+        tr,th,td{
+            border: 1px solid black;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <h2>hello : {{user_loged.first_name}}!</h2>
+            <h2><a href="/logout">logout</a></h2>
+            <h2><a href="/add_wish">make a wish</a></h2>
+        </header>
+        <hr>
+        <div class="first_table">
+            <p>youre wish list</p>
+            <table>
+                <tr>
+                    <th>item</th>
+                    <th>date added</th>
+                    <th> actions</th>
+                </tr>
+                {% for key in wishs%}
+                <tr>
+                    {%if not key.granted %}
+                    <td>{{key.item}}</td>
+                    <td>{{key.created_at}}</td>
+                    <td><a href="/delet/{{key.id}}">remove</a> | <a href="/edit/{{key.id}}">edit</a> | 
+                    <a href="/handel_grant/{{key.id}}">granted!</a></td>
+                    {%endif%}
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="second_table">
+            <p>granted wishes</p>
+            <table>
+                <tr>
+                    <th>item</th>
+                    <th>whisher</th>
+                    <th>date added</th>
+                    <th> date granted</th>
+                </tr>
+                {% for key in wishs%}
+                <tr>
+                    {%if key.granted %}
+                    <td>{{key.item}}</td>
+                    <td>{{key.uploded_by.first_name}}</td>
+                    <td>{{key.created_at}}</td>
+                    <td>{{key.updated_at}}</td>
+                    <td><a href="/delet/{{key.id}}">remove</a> | <a href="/edit/{{key.id}}">edit</a> | 
+                    <a href="/handel_grant/{{key.id}}">granted!</a></td>
+                    {%endif%}
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

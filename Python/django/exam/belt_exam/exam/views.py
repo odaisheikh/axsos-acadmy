@@ -1,6 +1,6 @@
 from multiprocessing import context
 from django.shortcuts import render,HttpResponse,redirect
-from login_app.models import Login,Whish
+from login_app.models import Login,Whish,WhishGranted
 from django.contrib import messages
 
 def index(request,user_id):
@@ -8,7 +8,6 @@ def index(request,user_id):
     context = {
         'user_loged' : Login.objects.get(id = user_id),
         'wishs':Login.objects.get(id = user_id).books_uploded.all(),
-        'all_wishs' : Whish.objects.all()
 
     }
     return render(request,'wish.html' , context)
@@ -70,5 +69,6 @@ def grant(request , wish_id):
     user = Login.objects.get(id = request.session['user_id'])
     wish.granted = True
     wish.save()
+    # WhishGranted.objects.create( uploded_by = Login.objects.get(id =request.session['user_id']),whish_by = wish)
     return redirect('/main/'+str(request.session['user_id']))
     
