@@ -31,6 +31,7 @@ public class TestOrder{
         order3.total++;
         order1.ready =true;
         order4.items.add(item2);
+        order4.items.add(item2);
         order4.total+=2;
         order3.ready=true;
 
