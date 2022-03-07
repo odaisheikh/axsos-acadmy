@@ -26,14 +26,15 @@ public class TestOrder{
         order4.name = "Sam";
         System.out.println(order1.name);
         order1.items.add(item1);
-        order1.total++;
+        order1.total = 1;
         order3.items.add(item4);
-        order3.total++;
+        order3.total = 1;
         order1.ready =true;
         order4.items.add(item2);
         order4.items.add(item2);
         order4.total+=2;
-        order3.ready=true;
+        order3.ready=true;System.out.println(order1.toString());
+        
 
     }
 }
