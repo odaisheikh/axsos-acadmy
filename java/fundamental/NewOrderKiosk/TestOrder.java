@@ -3,11 +3,10 @@ import java.util.ArrayList;
 public class TestOrder{
 
     public static void main(String[] args){
-
-        Item item1 = new Item();
-        Item item2 = new Item();
-        Item item3 = new Item();
-        Item item4 = new Item();
+        // Item item1 = new Item();
+        // Item item2 = new Item();
+        // Item item3 = new Item();
+        // Item item4 = new Item();
         // item1.setName("mocha"); 
         // item2.setName("latte");
         // item3.setName("drip"); 
@@ -27,10 +26,13 @@ public class TestOrder{
         // for(Item x : xc){
         //     System.out.println(x.getName());
         // }
-
         // System.out.println(order1.getStatusMessage()); 
-        NewOrder kikos = new NewOrder();
-            kikos.addMenu("cafe" ,12 );
-            kikos.display();
+
+        NewOrder x = new NewOrder();
+        x.addMenu("cafe", 11);
+        x.addMenu("tea", 12);
+        x.addMenu("milk", 120);
+        x.newOrder();
+
     }
 }

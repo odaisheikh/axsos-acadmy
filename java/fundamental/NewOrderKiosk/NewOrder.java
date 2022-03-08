@@ -22,5 +22,21 @@ public class NewOrder {
             counter++;
         }
     }
+    public void newOrder(){
+        System.out.println("Please enter customer name for new order:");
+        String name = System.console().readLine();
+        Order x = new Order();
+        x.setName(name);
+        display();
+        System.out.println("Please enter a menu item index or q to quit:");
+        String itemNumber = System.console().readLine();
+        while(!itemNumber.equals("q")) {
+            x.setItems(menu.get(Integer.parseInt(itemNumber)));
+            itemNumber = System.console().readLine();
+        }
+        this.orders.add(x);
+        x.display();
+        
+    }
     
 }
