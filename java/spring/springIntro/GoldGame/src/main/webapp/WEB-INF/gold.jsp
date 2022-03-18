@@ -15,11 +15,12 @@
 </head>
 <body>
 <div class="container">
+<h1><textarea rows="3" cols="3">${counter}</textarea></h1>
 <div class="row">
   <div class="col-sm-3">
 		<h2>farm</h2>
 		<p>earn 10-20 gold</p>
-	  	<form action="/gold" method="POST">
+	   <form action="/show/all" method="post" >
 	  		<input type="hidden" value="farm" name="gold">
 	  		<button type="submit">submit</button>
 	  	</form>
@@ -27,23 +28,23 @@
   <div class="col-sm-3">
   		<h2>cave</h2>
   		<p>earn 10-20 gold</p>
-  		<form action='/gold' method="post">
+  		<form action='/show/all' method="post">
   		
-	  		<input type="hidden" value="cave" name="gold">
+	  		<input type="hidden" value="farm" name="gold">
 	  		<button type="submit">submit</button>
 	  	</form></div>
   <div class="col-sm-3">
   	<h2>house</h2>
   	<p>earn 10-20 gold</p>
-  	<form action="/gold" method="post">
-	  		<input type="hidden" value="house" name="gold">
+  	<form action="/show/all" method="post">
+	  		<input type="hidden" value="farm" name="gold">
 	  		<button type="submit">submit</button>
 	  	</form>
   </div>
   <div class="col-sm-3">
   	<h2>guest</h2>
   	<p>earn/takes 0-50 gold</p>
-  	<form action="/gold" method="post">
+  	<form action="/show/all" method="post">
 	  		<input type="hidden" value="guest" name="gold">
 	  		<button type="submit">submit</button>
 	  	</form>
