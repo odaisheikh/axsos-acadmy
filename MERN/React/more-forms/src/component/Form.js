@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../css/form.css"
 
 const Form = (props) => {
     const [firstName, setFirstName] = useState("");
@@ -31,7 +32,7 @@ const Form = (props) => {
     }
     const handelEmail = (e)=>{
         if(e.target.value.length < 4){
-            setErrorf("email should be at least 4 character");
+            setErrore("email should be at least 4 character");
         }
         else{
             setErrore("");
@@ -59,31 +60,31 @@ const Form = (props) => {
     return (
         <div>
             <form>
-                <div>
-                    <p>first name</p>
+                <div className='form-group'>
+                    <label>first name</label>
                     <input type="text" onChange={handelFirstName}/>
-                    <p>{errorf}</p>
                 </div>
-                <div>
-                    <p>last name</p>
+                <p>{errorf}</p>
+                <div className='form-group'>
+                    <label>last name</label>
                     <input type="text" onChange={handelLastName}/>
-                    <p>{errorl}</p>
                 </div>
-                <div>
-                    <p>email</p>
+                <p>{errorl}</p>
+                <div className='form-group'>
+                    <label>email</label>
                     <input type="text" onChange={handelEmail}/>
-                    <p>{errore}</p>
                 </div>
-                <div>
-                    <p>password</p>
+                <p>{errore}</p>
+                <div className='form-group'>
+                    <label>password</label>
                     <input type="text" onChange={handelPassword}/>
-                    <p>{errorp}</p>
                 </div>
-                <div>
-                    <p>confirmPassword</p>
+                <p>{errorp}</p>
+                <div className='form-group'>
+                    <label>confirmPassword</label>
                     <input type="text" onChange={handelConfirmPassword}/>
-                    <p>{errorc}</p>
                 </div>
+                <p>{errorc}</p>
             </form>
             <div>
                 <p>{firstName}</p>
