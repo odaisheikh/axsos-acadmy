@@ -1,16 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
-import Test from "./component/Test"
+import Form from './component/Form';
+import Show from './component/Show';
+import { useState } from 'react';
 
 function App() {
+  const [color , setColor] = useState([]);
+  const youveGotMail = ( newMessage ) => {
+    // setColor(color.concat(newMessage));
+    setColor([...color , newMessage]);}
+  const tabs = [1,2,3];
+
   return (
-    <div className="App">
-        <Test header={ "Header Prop" }>
-            <p>This is a child</p>
-            <p>This is another child</p>
-            <p>This is even another child</p>
-        </Test>  
-    </div>
+    <>
+      
+      <Form myFun={youveGotMail}/>
+      
+        <Show myColor={color}/>
+      
+      
+      
+    </>
+  
   );
 }
 
