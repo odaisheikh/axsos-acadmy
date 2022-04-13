@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import { AddForm } from './component/AddForm';
+import { Display } from './component/Display';
+import { useState } from 'react';
 
 function App() {
+  const [task,setTask]=useState([]);
+  const handelAdd =(item)=>{
+    setTask([...task , item])
+  }
+  const handelDelete = (i) => {setTask([
+    ...task.slice(0, i),
+            ...task.slice(i+ 1)])
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AddForm funAdd={handelAdd}/>
+      < Display funDelete={handelDelete} mision={task}/>
     </div>
   );
 }
