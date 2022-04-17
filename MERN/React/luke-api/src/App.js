@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React from "react"
 import './App.css';
 import {
   BrowserRouter,
@@ -6,23 +6,18 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Apout } from './component/Apout';
+import  Apout  from './component/Apout';
 import { Home } from './component/Home';
 function App() {
   return (
+    
     <BrowserRouter>
-      <h1>Routing Example</h1>
-      <p>
-        <Link to="/">Home</Link>
-        | 
-        <Link to="/about">About</Link>   
-      </p>
       <Switch>
-      <Route path="/about">
-          <Apout />
-        </Route>
-        <Route exact path="/">
+      <Route exact path="/home">
           <Home />
+        </Route>
+      <Route path="/about/:newabout">
+          <Apout />
         </Route>
         </Switch>
     </BrowserRouter>

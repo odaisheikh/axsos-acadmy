@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Home = () => {
-  return (
-    <div>Homefffffffffffff</div>
-  )
-}
+    return (
+        <div>H</div>
+    )
+    }

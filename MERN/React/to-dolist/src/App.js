@@ -9,10 +9,14 @@ function App() {
   const handelAdd =(item)=>{
     setTask([...task , item])
   }
-  const handelDelete = (i) => {setTask([
-    ...task.slice(0, i),
-            ...task.slice(i+ 1)])
+  const handelDelete = (i) => {
+    // setTask([
+    // ...task.slice(0, i),
+    // ...task.slice(i+ 1)
+    //       ])
+    setTask(task.filter((item,idx)=>idx!=i));
 }
+console.log([...task.slice(1+ 1)]);
   return (
     <div className="App">
       <AddForm funAdd={handelAdd}/>
