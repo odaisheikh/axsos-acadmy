@@ -1,0 +1,61 @@
+switched to db my_first_db
+//////////
+> db.createCollection('students')
+{ "ok" : 1 }
+> db
+my_first_db
+> db.students.insert({name:"odai",home_state:"on_site",lucky_number:22,birthday:{mounth:3,day:4,year:1999}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"sami",home_state:"on_site",lucky_number:22,birthday:{mounth:3,day:4,year:1999}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"ali",home_state:"on_site",lucky_number:22,birthday:{mounth:3,day:4,year:1999}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"khaled",home_state:"on_site",lucky_number:22,birthday:{mounth:3,day:4,year:1999}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"jihad",home_state:"on_site",lucky_number:22,birthday:{mounth:3,day:4,year:1999}})
+WriteResult({ "nInserted" : 1 })
+> show collections
+my_first_db
+students
+> db.my_first_db.find()
+{ "_id" : ObjectId("625d32bbafc004424643749e"), "name" : "odai", "home_state" : "on_site", "lucky_number" : 22, "birthday" : { "mounth" : 3, "day" : 4, "year" : 1999 } }
+{ "_id" : ObjectId("625d32e3afc004424643749f"), "name" : "sami", "home_state" : "on_site", "lucky_number" : 22, "birthday" : { "mounth" : 3, "day" : 4, "year" : 1999 } }
+{ "_id" : ObjectId("625d32ecafc00442464374a0"), "name" : "ali", "home_state" : "on_site", "lucky_number" : 22, "birthday" : { "mounth" : 3, "day" : 4, "year" : 1999 } }
+{ "_id" : ObjectId("625d32f9afc00442464374a1"), "name" : "khaled", "home_state" : "on_site", "lucky_number" : 22, "birthday" : { "mounth" : 3, "day" : 4, "year" : 1999 } }
+{ "_id" : ObjectId("625d330bafc00442464374a2"), "name" : "jihad", "home_state" : "on_site", "lucky_number" : 22, "birthday" : { "mounth" : 3, "day" : 4, "year" : 1999 } }
+////////////
+> db.students.find({$or:[{home_state:"beetamin"},{home_state:"azone"}]}).pretty()
+{
+        "_id" : ObjectId("625d33d6afc00442464374a3"),
+        "name" : "jihad",
+        "home_state" : "beetamin",
+        "lucky_number" : 22,
+        "birthday" : {
+                "mounth" : 3,
+                "day" : 4,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("625d33e0afc00442464374a4"),
+        "name" : "jihad",
+        "home_state" : "azone",
+        "lucky_number" : 22,
+        "birthday" : {
+                "mounth" : 3,
+                "day" : 4,
+                "year" : 1999
+        }
+}
+/////////////
+db.students.update({},{$set:{sama:['coding','branch','mongodb']}},false,true)
+////////////
+
+db.my_first_db.find({lucky_number:{$gt:10}}).pretty()
+///////////////
+db.my_first_db.find({lucky_number:{$lte:10}}).pretty()
+////////////
+db.my_first_db.find({lucky_number:{$gt:10,$lte:222}}).pretty()
+////////
+db.my_first_db.update({},{$set:{intrests:['coding','branch','mongodb']}},false,true)
+///////////
