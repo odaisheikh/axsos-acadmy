@@ -59,3 +59,9 @@ db.my_first_db.find({lucky_number:{$gt:10,$lte:222}}).pretty()
 ////////
 db.my_first_db.update({},{$set:{intrests:['coding','branch','mongodb']}},false,true)
 ///////////
+
+> db.students.update({_id: ObjectId("625d3ed0afc00442464374a8")},{$pull:{sama:"football"}})
+/////////////
+
+> db.students.update({_id: ObjectId("625d3ed0afc00442464374a8")},{$push:{sama:"football"}})
+////////////
