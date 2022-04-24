@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams } from "react-router-dom";
 import {
     BrowserRouter,
-    Link 
-  } from "react-router-dom";
+    Link,
+    useParams,
+    } from "react-router-dom";
 const Detail = (props) => {
     const [product, setProduct] = useState({})
     const { id } = useParams();
