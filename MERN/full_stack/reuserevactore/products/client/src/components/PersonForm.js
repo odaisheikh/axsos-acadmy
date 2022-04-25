@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 export default props => {
-    const { initialtitle, initialprice, onSubmitProp } = props;
-    const [title, settitle] = useState(initialtitle);
-    const [price, setprice] = useState(initialprice);
+    const { initialTitle, initialPrice, onSubmitProp } = props;
+    const [title, settitle] = useState(initialTitle);
+    const [price, setprice] = useState(initialPrice);
     // const [desc, setDesc] = useState(initialDesc);
     const onSubmitHandler = e => {
         e.preventDefault();
@@ -12,22 +14,15 @@ export default props => {
         
     return (
         <form onSubmit={onSubmitHandler}>
-            <p>
-                <label>title</label><br />
-                <input 
-                    type="text" 
-                    name="title" value={title} 
-                    onChange={(e) => { settitle(e.target.value) }} />
-            </p>
-            <p>
-                <label>price</label><br />
-                <input 
-                    type="number" 
-                    name="price" 
-                    value={price} 
-                    onChange={(e) => { setprice(e.target.value) }} />
-            </p>
-            <input type="submit" />
+            <div>
+            <TextField type="text" 
+                    name="title"  value={title} id="standard-basic" label="title" variant="standard" onChange={(e) => { settitle(e.target.value) }} />
+            </div>
+            <div>
+            <TextField type="number" 
+                    name="price"  value={price} id="standard-basic" label="price" variant="standard" onChange={(e) => { setprice(e.target.value) }} />
+            </div>
+            <Button type='submit'>submit</Button>
         </form>
     )
 }

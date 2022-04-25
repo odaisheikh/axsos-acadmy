@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import PersonForm from '../components/PersonForm';
-import DeleteButton from '../components/DeleteButton';
-const Update = (props) => {
+import DeleteButton from './DeleteButton';
+import Author from './Author';
+const Updat = (props) => {
     
+    const [error,setError]=useState([]);
     let navigate = useNavigate()
     const { id } = useParams();
     const [person, setPerson] = useState();
     const [loaded, setLoaded] = useState(false);
-    const [error, setError] = useState([]);
+    // const [error, setError] = useState([]);
     
     useEffect(() => {
-        axios.get('http://localhost:8000/api/people/' + id)
+        axios.get('http://localhost:8000/api/author/' + id)
             .then(res => {
                 setPerson(res.data);
                 setLoaded(true);
@@ -20,7 +21,7 @@ const Update = (props) => {
     }, []);
     
     const updatePerson = person => {
-        axios.put('http://localhost:8000/api/people/' + id, person)
+        axios.put('http://localhost:8000/api/author/' + id, person)
             .then(res => {console.log(res);navigate('/')})
             .catch(err=>{
                 const errorResponse = err.response.data.errors; // Get the errors from err.response.data
@@ -30,25 +31,21 @@ const Update = (props) => {
                 }
                 // Set Errors
                 setError(errorArr);
-            })        
+            })       
     }
     
     return (
         <div>
-            <h1>Update a Person</h1>
+            <h1>Update an Person</h1>
             {loaded && (
                 <>
-                    <div>
-                    {
-                        error.map((value,index)=>{<div key={index}>{value}</div>})
-                    }
-                    </div>
-                    <PersonForm
+                    {error.map((err, index) => <div key={index}>{err}</div>)}
+                    <Author
                         onSubmitProp={updatePerson}
-                        initialTitle={person.title}
-                        initialPrice={person.price}
+                        initialName={person.name}
                     />
-                    {console.log(person.title)}
+                    {console.log("hhhhhh")}
+                    {console.log(person.name)}
                     <DeleteButton personId={person._id} successCallback={() => navigate("/")} />
                 </>
             )}
@@ -56,4 +53,4 @@ const Update = (props) => {
     )
 }
     
-export default Update;
+export default Updat;

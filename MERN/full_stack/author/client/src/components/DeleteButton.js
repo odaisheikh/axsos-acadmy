@@ -14,7 +14,7 @@ export default props => {
     
     return (
         <Button variant="contained" disableElevation onClick={deletePerson}>
-        Disable elevation
+        Delete
         </Button>
     )
 }
