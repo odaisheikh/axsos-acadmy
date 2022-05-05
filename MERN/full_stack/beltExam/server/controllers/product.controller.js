@@ -6,14 +6,14 @@ module.exports.index = (request, response) => {
 }
     // The method below is new
 module.exports.createProduct = (request, response) => {
-    const { title, price , desc } = request.body;
+    const { title, date , status } = request.body;
     Product.create({
         title,
-        price,
-        desc
+        date,
+        status
     })
         .then(Product => response.json(Product))
-        .catch(err => response.json(err));
+        .catch(err => response.status(400).json(err));
 }
 
 module.exports.getAllProduct = (request, response) => {
@@ -31,7 +31,7 @@ module.exports.getProduct = (request, response) => {
 module.exports.updatePerson = (request, response) => {
     Product.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
         .then(updatedPerson => response.json(updatedPerson))
-        .catch(err => response.json(err))
+        .catch(err => response.status(400).json(err))
 }
 
 module.exports.deletePerson = (request, response) => {
